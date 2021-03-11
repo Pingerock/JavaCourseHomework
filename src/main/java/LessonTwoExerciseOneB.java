@@ -1,3 +1,5 @@
+package main.java;
+
 public class LessonTwoExerciseOneB {
     public static void main(String[] args) {
         double price = (30 + Math.random() * 30);

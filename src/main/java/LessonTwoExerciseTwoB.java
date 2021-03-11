@@ -1,3 +1,5 @@
+package main.java;
+
 public class LessonTwoExerciseTwoB {
     public static void main(String[] args) {
         double A = Math.random() * 200 - 100;
