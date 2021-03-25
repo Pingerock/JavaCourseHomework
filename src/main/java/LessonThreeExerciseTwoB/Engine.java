@@ -5,12 +5,12 @@ import java.util.concurrent.TimeUnit;
 
 public class Engine {
     int power;
-    int piston_count;
+    int pistonCount;
     int weight;
 
-    public Engine(int power, int piston_count, int weight) {
+    public Engine(int power, int pistonCount, int weight) {
         this.power = power;
-        this.piston_count = piston_count;
+        this.pistonCount = pistonCount;
         this.weight = weight;
     }
 
