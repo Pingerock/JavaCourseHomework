@@ -3,6 +3,8 @@ package main.java;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
+import java.util.Set;
+import java.util.HashSet;
 
 public class CollectionsExerciseThreeB {
     public static void main(String[] args) {
@@ -26,29 +28,19 @@ public class CollectionsExerciseThreeB {
         //счётчик повторяющихся чисел
         int duplicateCount = 0;
         //коллекция содержащих себе по образцу повторяющегося числа
-        ArrayList<Integer> duplicateNumbers = new ArrayList<>();
+        Set<Integer> duplicateNumbers = new HashSet<>();
         //цикл вычисления повторяющихся чисел
-        for (int i = 1; i < list.size() - 1; i++) {
-            int x = list.get(i);
-            int y = list.get(i + 1);
-            int z = list.get(i - 1);
-            if ((x == y) || (x == z)) {
-                if (((x == z) && (i == 1)) || ((x == y) && (i == list.size() - 2))) {
+        for (int i = 0; i < list.size()-1; i++) {
+            for (int j = i+1; j <list.size() ; j++) {
+                if(list.get(i).equals(list.get(j))){
                     duplicateCount++;
-                }
-                duplicateCount++;
-                if (duplicateNumbers.isEmpty()) {
-                    duplicateNumbers.add(x);
-                } else {
-                    for (int j = 0; j < duplicateNumbers.size(); j++) {
-                        int x1 = duplicateNumbers.get(j);
-                        if (x == x1) {
-                            break;
-                        }
-                        if ((x != x1) && (j == duplicateNumbers.size() - 1)) {
-                            duplicateNumbers.add(x);
-                        }
+                    if(!duplicateNumbers.contains(list.get(j))){
+                        duplicateCount++;
+                        duplicateNumbers.add(list.get(j));
                     }
+                }else {
+                    i = j-1;
+                    break;
                 }
             }
         }
