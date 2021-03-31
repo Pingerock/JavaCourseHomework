@@ -11,24 +11,13 @@ public class Task<T> {
     }
 
     public void deleteDuplicates(T t) {
-        int index = 0;
-        for (T t1 : list) {
-            if (t1.equals(t)) {
-                list.set(index, null);
-            }
-            index++;
+        while (list.contains(t)) {
+            list.remove(t);
         }
     }
 
     public void printList() {
         for (T t2 : list) {
-            try {
-                if (t2.equals(null)) {
-                    continue;
-                }
-            } catch (NullPointerException e) {
-                continue;
-            }
             System.out.print(t2 + " ");
         }
         System.out.println("\n");
