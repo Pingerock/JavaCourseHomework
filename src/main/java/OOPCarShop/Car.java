@@ -3,14 +3,14 @@ package main.java.OOPCarShop;
 public class Car {
 
     //бесполезный класс машины
-    String brand;
-    String model;
-    String type;
-    String engine;
-    String transmission;
-    String owner = null;
-    int dateOfRelease;
-    int price;
+    private String brand;
+    private String model;
+    private String type;
+    private String engine;
+    private String transmission;
+    private String owner = null;
+    private int dateOfRelease;
+    private int price;
 
     public Car(String brand, String model, String type, String engine, String transmission, int dateOfRelease, int price){
         this.brand = brand;
@@ -20,6 +20,38 @@ public class Car {
         this.transmission = transmission;
         this.dateOfRelease = dateOfRelease;
         this.price = price;
+    }
+
+    public String getBrand(){
+        return brand;
+    }
+
+    public String getModel(){
+        return model;
+    }
+
+    public String getType(){
+        return type;
+    }
+
+    public String getEngine(){
+        return engine;
+    }
+
+    public String getTransmission(){
+        return transmission;
+    }
+
+    public String getOwner(){
+        return owner;
+    }
+
+    public int getDateOfRelease() {
+        return dateOfRelease;
+    }
+
+    public int getPrice() {
+        return price;
     }
 
     public void move(){

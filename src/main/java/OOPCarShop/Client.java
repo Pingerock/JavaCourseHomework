@@ -2,11 +2,11 @@ package main.java.OOPCarShop;
 
 public class Client extends Person {
     //бесполезный класс клиента, который наследуется от класса человека (Person)
-    String address;
-    boolean Sex;
-    boolean insideShop = true;
-    boolean hasACar = false;
-    String FI;
+    private String address;
+    private boolean Sex;
+    private boolean insideShop = true;
+    private boolean hasACar = false;
+    private String FI;
 
     public Client(String name, String familyName, int age, String address, boolean Sex) {
         super(name, familyName, age);
@@ -39,5 +39,31 @@ public class Client extends Person {
         } else {
             System.out.println(this.name + "не в автосалоне.");
         }
+    }
+
+    //сеттеры "состояний" клиента: есть ли у него машина; он сейчас в автосалоне?
+    public void setInsideShop(boolean a) {
+        this.insideShop = a;
+    }
+
+    public void setHasACar(boolean a) {
+        this.hasACar = a;
+    }
+
+    //геттеры
+    public String getAddress() {
+        return address;
+    }
+
+    public boolean isSex() {
+        return Sex;
+    }
+
+    public String getFI() {
+        return FI;
+    }
+
+    public boolean isInsideShop() {
+        return insideShop;
     }
 }
