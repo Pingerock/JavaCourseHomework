@@ -2,9 +2,9 @@ package main.java.OOPCarShop;
 
 public class Person {
     //бесполезный класс-родитель человека, содержит в себе бесполезные поля
-    protected String name;
-    protected String familyName;
-    protected int age;
+    private String name;
+    private String familyName;
+    private int age;
 
     public Person(String name, String familyName, int age) {
         this.name = name;

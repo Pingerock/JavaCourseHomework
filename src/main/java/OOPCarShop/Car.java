@@ -12,7 +12,7 @@ public class Car {
     private int dateOfRelease;
     private int price;
 
-    public Car(String brand, String model, String type, String engine, String transmission, int dateOfRelease, int price){
+    public Car(String brand, String model, String type, String engine, String transmission, int dateOfRelease, int price) {
         this.brand = brand;
         this.model = model;
         this.type = type;
@@ -22,27 +22,27 @@ public class Car {
         this.price = price;
     }
 
-    public String getBrand(){
+    public String getBrand() {
         return brand;
     }
 
-    public String getModel(){
+    public String getModel() {
         return model;
     }
 
-    public String getType(){
+    public String getType() {
         return type;
     }
 
-    public String getEngine(){
+    public String getEngine() {
         return engine;
     }
 
-    public String getTransmission(){
+    public String getTransmission() {
         return transmission;
     }
 
-    public String getOwner(){
+    public String getOwner() {
         return owner;
     }
 
@@ -54,11 +54,16 @@ public class Car {
         return price;
     }
 
-    public void move(){
+    public void move() {
         System.out.println("Педаль газа в пол и поехали!");
     }
 
-    public void brake(){
+    public void brake() {
         System.out.println("Педаль тормоза в пол и остановились.");
+    }
+
+    @Override
+    public String toString() {
+        return brand + " " + model + " " + dateOfRelease + "г.";
     }
 }

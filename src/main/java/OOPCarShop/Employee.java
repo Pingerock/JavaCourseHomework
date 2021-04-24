@@ -6,7 +6,6 @@ public class Employee extends Person {
     //бесполезный класс сотрудника автосалона, содержит в себе бесполезные поля и функции
     private String fatherName;
     private String job;
-    private String FIO;
     private ArrayList<Car> carList = new ArrayList<>();
     private int amountOfCarsSoldThisPeriod = 0;
     private int profitOfSoldCars = 0;
@@ -18,49 +17,52 @@ public class Employee extends Person {
         super(name, familyName, age);
         this.fatherName = fatherName;
         this.job = job;
-        this.FIO = familyName + " " + Character.toString(this.name.charAt(0)) + ". " + Character.toString(this.fatherName.charAt(0)) + ".";
+    }
+
+    public String FIO() {
+        return getFamilyName() + " " + Character.toString(getName().charAt(0)) + ". " + Character.toString(fatherName.charAt(0)) + ".";
     }
 
     //бесполезный метод
     public void move() {
-        System.out.println(name + "сделал несколько шагов.");
+        System.out.println(getName() + "сделал несколько шагов.");
     }
 
     //бесполезный метод
     public void sell() {
-        System.out.println("Работник " + name + " пытается продать машину клиентам.");
+        System.out.println("Работник " + getName() + " пытается продать машину клиентам.");
     }
 
     //метод, который удаляет машину из списка
     public void deleteCar(Car car) {
         int x = carList.indexOf(car);
-        System.out.println("Машина " + car.getBrand() + car.getModel() + car.getDateOfRelease() + " г. была удалена успешно.");
+        System.out.println("Машина " + car + " была удалена успешно.");
         carList.remove(x);
     }
 
     //метод, который добавляет машину в список
     public void addCar(Car car) {
         carList.add(car);
-        System.out.println("Машина " + car.getBrand() + " " + car.getModel() + " " + car.getDateOfRelease() + "г. была добавлена успешно.");
+        System.out.println("Машина " + car + " была добавлена успешно.");
     }
 
     //метод, который отображает машины, которые имеются у данного сотрудника
     public void showCars() {
         if (!carList.isEmpty()) {
-            System.out.println("За сотрудник автосалона " + name + " " + familyName + " закреплены машины:");
+            System.out.println("За сотрудник автосалона " + getName() + " " + getFamilyName() + " закреплены машины:");
             for (int i = 0; i < carList.size(); i++) {
-                System.out.println((i + 1) + ". " + carList.get(i).getBrand() + " " + carList.get(i).getModel() + " " + carList.get(i).getDateOfRelease() + " г.;");
+                System.out.println((i + 1) + ". " + carList.get(i) + ";");
             }
         } else {
-            System.out.println("За сотрудником автосалона " + name + " " + familyName + " не закреплено машин в данный момент.");
+            System.out.println("За сотрудником автосалона " + getName() + " " + getFamilyName() + " не закреплено машин в данный момент.");
         }
     }
 
     //Продолжение метода clientSellCar() - финал: машина продается(удаляется из списка), начисляется прибавка к зарплате
     //добавляется +1 к счётчику проданных машин за определенный период.
     public void sellCar(Car carForSale, Client buyer) {
-        System.out.println("Поздравляю! Покупатель " + buyer.familyName + " " + buyer.name + " стал обладателем " +
-                "небитого и точно неукраденного " + carForSale.getBrand() + " " + carForSale.getModel() + " " + carForSale.getDateOfRelease() + " года выпуска.");
+        System.out.println("Поздравляю! Покупатель " + buyer.getFamilyName() + " " + buyer.getName() + " стал обладателем " +
+                "небитого и точно неукраденного " + carForSale);
         amountOfCarsSoldThisPeriod++;
         profitOfSoldCars += carForSale.getPrice();
         buyer.setHasACar(true);
@@ -102,10 +104,6 @@ public class Employee extends Person {
 
     public String getFatherName() {
         return fatherName;
-    }
-
-    public String getFIO() {
-        return FIO;
     }
 
     public String getJob() {
